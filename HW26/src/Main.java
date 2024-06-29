@@ -1,6 +1,9 @@
 import java.util.HashSet;
 import java.util.List;
+import java.util.OptionalInt;
 import java.util.Set;
+
+import static java.util.Arrays.stream;
 
 public class Main {
     public static void main(String[] args) {
@@ -30,8 +33,22 @@ public class Main {
 
         //todo Решение дз 1 тут
 
+        int theTotalNumberOfLettersInTheCollection = sets.stream()
+                .flatMap(Set::stream)
+                .mapToInt(String::length)
+                .sum();
+        System.out.println("\n The total number of letters in the entire collection is: " + theTotalNumberOfLettersInTheCollection);
+
+        int theLengthOfTheLongestWord = sets.stream()
+                .flatMap(Set::stream)
+                .mapToInt(String::length)
+                .max().getAsInt();
+        System.out.println(" The longest word consists of " + theLengthOfTheLongestWord + " letters");
+
         //Task2
         List<Employee> employees = EmployeeFactory.createEmployee();
         //todo решения дз 2 тут
+
+
     }
 }
