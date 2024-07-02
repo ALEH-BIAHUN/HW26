@@ -111,6 +111,7 @@ public class Main {
 
         System.out.println("*****************************************");
 
+        //Task3
         Map<String, Employee> employeeMap = employees.stream()
                 .filter(s -> s.getAge() < 35)
                 .filter(s -> s.getSalary() > 10000)
