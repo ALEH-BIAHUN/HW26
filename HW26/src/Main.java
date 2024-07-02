@@ -1,5 +1,6 @@
 import java.util.*;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 import static java.util.Arrays.stream;
 
@@ -108,6 +109,13 @@ public class Main {
         System.out.println("The average KPI value among Russian employees who are younger than 45 years old " +
                 "and whose salary is greater than 20000: " + theAverageKpiValueAmongRussianEmployeesemployees);
 
+        System.out.println("*****************************************");
 
+        Map<String, Employee> employeeMap = employees.stream()
+                .filter(s -> s.getAge() < 35)
+                .filter(s -> s.getSalary() > 10000)
+                .collect(Collectors.toMap(e -> e.getName() + " " + e.getSurname(), e -> e));
+                employeeMap.entrySet().stream()
+                        .forEach(System.out::println);
     }
 }
